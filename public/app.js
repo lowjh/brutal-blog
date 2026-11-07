@@ -48,7 +48,6 @@ form.addEventListener("submit", async (e) => {
   const name = nameInput.value.trim();
   const content = contentInput.value.trim();
   if (!name || !content) return;
-
   try {
     await fetch("/api/comments", {
       method: "POST",

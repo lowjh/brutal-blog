@@ -14,26 +14,19 @@ if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 if (!fs.existsSync(COMMENTS_FILE)) fs.writeFileSync(COMMENTS_FILE, "[]");
 
 function readComments() {
-  try {
-    return JSON.parse(fs.readFileSync(COMMENTS_FILE, "utf8"));
-  } catch {
-    return [];
-  }
+  try { return JSON.parse(fs.readFileSync(COMMENTS_FILE, "utf8")); }
+  catch { return []; }
 }
 
 function writeComments(comments) {
   fs.writeFileSync(COMMENTS_FILE, JSON.stringify(comments, null, 2));
 }
 
-app.get("/api/comments", (req, res) => {
-  res.json(readComments());
-});
+app.get("/api/comments", (req, res) => res.json(readComments()));
 
 app.post("/api/comments", (req, res) => {
   const { name, content } = req.body;
-  if (!name || !content) {
-    return res.status(400).json({ error: "name and content required" });
-  }
+  if (!name || !content) return res.status(400).json({ error: "name and content required" });
   const comments = readComments();
   const comment = {
     id: Date.now(),
@@ -46,6 +39,4 @@ app.post("/api/comments", (req, res) => {
   res.status(201).json(comment);
 });
 
-app.listen(PORT, () => {
-  console.log(`Blog running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Blog running on port ${PORT}`));
