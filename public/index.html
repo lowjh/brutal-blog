@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LO-FI — 博客</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <h1 class="logo">LO//FI</h1>
+    <nav class="nav">
+      <a href="#posts">文章</a>
+      <a href="#comments">留言</a>
+      <a href="#about">关于</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="posts" class="posts">
+    <article class="post">
+      <div class="post-tag">2026.11.07</div>
+      <h2 class="post-title">为什么我又开始写博客了</h2>
+      <div class="post-body">
+        <p>社交平台的算法推荐让人疲惫。信息流越刷越短，表达越来越碎。我需要一个地方，不需要点赞数，不需要标签，只需要把想法写下来。</p>
+        <p>这个博客跑在 Cloady 的免费容器里，前端是新粗野主义风格——厚边框、硬阴影、高对比。没有圆角，没有渐变，没有多余的动效。</p>
+      </div>
+    </article>
+
+    <article class="post">
+      <div class="post-tag">2026.10.28</div>
+      <h2 class="post-title">新粗野主义不是丑，是诚实</h2>
+      <div class="post-body">
+        <p>Brutalism 在建筑里是暴露结构、暴露材料本身。放到网页上就是暴露边框、暴露阴影、暴露排版逻辑。不用模糊来掩盖层级，不用圆角来软化态度。</p>
+        <p>4px 黑色边框，硬投影 4px 4px 0，原色填充——这不是没设计好，这是设计的选择。</p>
+      </div>
+    </article>
+
+    <article class="post">
+      <div class="post-tag">2026.10.15</div>
+      <h2 class="post-title">免费容器能做什么</h2>
+      <div class="post-body">
+        <p>0.5 vCPU / 1GB 内存 / 5GB 硬盘。听起来不多，但跑一个静态博客加一个 JSON 文件存储的留言板，绰绰有余。</p>
+        <p>不用数据库，不用 Redis，不用 CDN。一个 Node 进程，一个 JSON 文件，就够了。</p>
+      </div>
+    </article>
+  </section>
+
+  <section id="comments" class="comments-section">
+    <h2 class="section-title">// 留言板</h2>
+
+    <form id="comment-form" class="comment-form">
+      <input type="text" id="comment-name" placeholder="你的名字" required maxlength="50">
+      <textarea id="comment-content" placeholder="说点什么..." required maxlength="1000" rows="4"></textarea>
+      <button type="submit" class="btn-submit">提交留言 →</button>
+    </form>
+
+    <div id="comment-list" class="comment-list">
+      <div class="comment-loading">加载中...</div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <h2 class="section-title">// 关于</h2>
+    <p>这是一个跑在 Cloady JPN1 免费层的个人博客。技术栈：Node.js + Express + 原生 HTML/CSS/JS。无框架，无构建工具，无前端依赖。</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>LO//FI © 2026 — POWERED BY CLOADY FREE TIER</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
