@@ -8,73 +8,70 @@
 </head>
 <body>
 
+<aside class="sidebar">
+  <div class="sidebar-logo">LO//</div>
+  <nav class="sidebar-nav">
+    <a href="#posts" class="sidebar-link" title="文章"><span>§</span></a>
+    <a href="#comments" class="sidebar-link" title="留言"><span>✎</span></a>
+    <a href="#about" class="sidebar-link" title="关于"><span>?</span></a>
+  </nav>
+  <div class="sidebar-auth" id="auth-area">
+    <a href="/auth/google" class="sidebar-login" title="Google 登录">
+      <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.09a6.6 6.6 0 0 1 0-4.18V7.07H2.18a11 11 0 0 0 0 9.86l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1A11 11 0 0 0 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+    </a>
+  </div>
+</aside>
+
 <header class="header">
   <div class="header-inner">
     <h1 class="logo">LO//FI</h1>
     <nav class="nav">
-      <a href="#posts">文章</a>
-      <a href="#comments">留言</a>
-      <a href="#about">关于</a>
+      <a href="#posts">文章</a><a href="#comments">留言</a><a href="#about">关于</a>
     </nav>
   </div>
 </header>
 
 <main class="container">
-
   <section id="posts" class="posts">
     <article class="post">
       <div class="post-tag">2026.11.07</div>
       <h2 class="post-title">为什么我又开始写博客了</h2>
-      <div class="post-body">
-        <p>社交平台的算法推荐让人疲惫。信息流越刷越短，表达越来越碎。我需要一个地方，不需要点赞数，不需要标签，只需要把想法写下来。</p>
-        <p>这个博客跑在 Cloady 的免费容器里，前端是新粗野主义风格——厚边框、硬阴影、高对比。没有圆角，没有渐变，没有多余的动效。</p>
-      </div>
+      <div class="post-body"><p>社交平台的算法推荐让人疲惫。信息流越刷越短，表达越来越碎。我需要一个地方，不需要点赞数，不需要标签，只需要把想法写下来。</p><p>这个博客跑在 Cloady 的免费容器里，前端是新粗野主义风格——厚边框、硬阴影、高对比。</p></div>
     </article>
-
     <article class="post">
       <div class="post-tag">2026.10.28</div>
       <h2 class="post-title">新粗野主义不是丑，是诚实</h2>
-      <div class="post-body">
-        <p>Brutalism 在建筑里是暴露结构、暴露材料本身。放到网页上就是暴露边框、暴露阴影、暴露排版逻辑。不用模糊来掩盖层级，不用圆角来软化态度。</p>
-        <p>4px 黑色边框，硬投影 4px 4px 0，原色填充——这不是没设计好，这是设计的选择。</p>
-      </div>
+      <div class="post-body"><p>Brutalism 在建筑里是暴露结构、暴露材料本身。放到网页上就是暴露边框、暴露阴影、暴露排版逻辑。</p><p>4px 黑色边框，硬投影 4px 4px 0，原色填充——这不是没设计好，这是设计的选择。</p></div>
     </article>
-
     <article class="post">
       <div class="post-tag">2026.10.15</div>
       <h2 class="post-title">免费容器能做什么</h2>
-      <div class="post-body">
-        <p>0.5 vCPU / 1GB 内存 / 5GB 硬盘。听起来不多，但跑一个静态博客加一个 JSON 文件存储的留言板，绰绰有余。</p>
-        <p>不用数据库，不用 Redis，不用 CDN。一个 Node 进程，一个 JSON 文件，就够了。</p>
-      </div>
+      <div class="post-body"><p>0.5 vCPU / 1GB 内存 / 5GB 硬盘。听起来不多，但跑一个静态博客加一个 JSON 文件存储的留言板，绰绰有余。</p><p>不用数据库，不用 Redis，不用 CDN。一个 Node 进程，一个 JSON 文件，就够了。</p></div>
     </article>
   </section>
 
   <section id="comments" class="comments-section">
     <h2 class="section-title">// 留言板</h2>
-
+    <div id="user-bar" class="user-bar" style="display:none">
+      <img id="user-avatar" class="user-avatar" src="" alt="">
+      <span id="user-name"></span>
+      <a href="/auth/logout" class="logout-link">退出</a>
+    </div>
     <form id="comment-form" class="comment-form">
       <input type="text" id="comment-name" placeholder="你的名字" required maxlength="50">
       <textarea id="comment-content" placeholder="说点什么..." required maxlength="1000" rows="4"></textarea>
       <button type="submit" class="btn-submit">提交留言 →</button>
     </form>
-
-    <div id="comment-list" class="comment-list">
-      <div class="comment-loading">加载中...</div>
-    </div>
+    <div id="comment-list" class="comment-list"><div class="comment-loading">加载中...</div></div>
   </section>
 
   <section id="about" class="about">
     <h2 class="section-title">// 关于</h2>
-    <p>这是一个跑在 Cloady JPN1 免费层的个人博客。技术栈：Node.js + Express + 原生 HTML/CSS/JS。无框架，无构建工具，无前端依赖。</p>
+    <p>这是一个跑在 Cloady JPN1 免费层的个人博客。Node.js + Express + 原生 HTML/CSS/JS。支持 Google 登录后留言。</p>
   </section>
-
 </main>
 
-<footer class="footer">
-  <p>LO//FI © 2026 — POWERED BY CLOADY FREE TIER</p>
-</footer>
-
+<footer class="footer"><p>LO//FI © 2026 — POWERED BY CLOADY FREE TIER</p></footer>
 <script src="app.js"></script>
 </body>
 </html>
